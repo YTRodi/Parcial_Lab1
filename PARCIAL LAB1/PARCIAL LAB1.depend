@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1571000885 source:c:\users\yago\desktop\parcial lab1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+
+1571000379 c:\users\yago\desktop\parcial lab1\utn.h
+
+1571188217 source:c:\users\yago\desktop\parcial lab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Clientes.h"
+	"Juego.h"
+	"Categoria.h"
+	"Alquiler.h"
+
+1571180851 c:\users\yago\desktop\parcial lab1\clientes.h
+
+1571188355 source:c:\users\yago\desktop\parcial lab1\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Clientes.h"
+	"utn.h"
+
+1571187594 source:c:\users\yago\desktop\parcial lab1\juego.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Juego.h"
+
+1571188393 c:\users\yago\desktop\parcial lab1\juego.h
+	"Categoria.h"
+
+1571176788 c:\users\yago\desktop\parcial lab1\categoria.h
+
+1571178442 source:c:\users\yago\desktop\parcial lab1\categoria.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Categoria.h"
+
+1571188031 source:c:\users\yago\desktop\parcial lab1\alquiler.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Clientes.h"
+	"Juego.h"
+	"Categoria.h"
+	"Alquiler.h"
+
+1571184806 c:\users\yago\desktop\parcial lab1\alquiler.h
+	"Clientes.h"
+	"Juego.h"
+	"Categoria.h"
+
