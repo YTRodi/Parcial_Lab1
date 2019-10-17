@@ -1,3 +1,4 @@
+#include "Categoria.h"
 #ifndef JUEGO_H_INCLUDED
 #define JUEGO_H_INCLUDED
 
@@ -11,7 +12,6 @@ typedef struct
 #endif // JUEGO_H_INCLUDED
 
 //ACA HACER EL INCLUDE CATEGORIA.H
-#include "Categoria.h"
 
 //void hardCodearJuegos(eJuego vecJuego[],int tJue,int cant);
 void hardCodearJuegos(eJuego vecJuego[],int tJue);

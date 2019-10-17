@@ -134,7 +134,8 @@ int main()
                         //printf("informe 2\n");
                         break;
                     case 3:
-                        printf("informe 3\n");
+                        imprimirTotalDeImportes(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU);
+                        //printf("informe 3\n");
                         break;
                     case 4:
                         printf("informe 4\n");
@@ -272,5 +273,55 @@ void imprimirAlquileresPorClienteSeleccionado(eAlquiler vecAlquiler[],int tAlqui
     {
         printf("\nEl Cliente no dio de alta ningun alquiler\n\n");
     }
+
+}
+
+void imprimirTotalDeImportes(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli, eJuego vecJuego[],int tJue)
+{
+    int idClienteABuscar;
+    int index;
+    int flag = 0;
+    int acumulador = 0;
+
+    printf("\n**TOTAL DE IMPORTES POR CLIENTES**\n\n");
+
+    imprimirClientes(vecCliente,tCli);
+    getInt(&idClienteABuscar,"\nIngrese ID del cliente: ","\nError. Reingrese un numero de id valido\n",1000,1999,2);
+
+
+    index = buscarClienteId(vecCliente,tCli,idClienteABuscar);
+
+    if(index == -1)
+    {
+        printf("\nNo existe un cliente con ese ID.\n\n");
+    }
+    else
+    {
+        for(int i = 0;i<tAlqui;i++)
+        {
+            if(vecAlquiler[i].idCliente == idClienteABuscar && vecAlquiler[i].isEmpty == 0)
+            {
+                for(int j = 0; j<tJue;j++)
+                {
+                    if(vecJuego[j].idJue == vecAlquiler[i].idJuego)
+                    {
+                        acumulador = acumulador + vecJuego[j].importe;
+                    }
+                }
+            }
+        }
+    }
+                        printf("\n\nLa suma acumulada del cliente es: %d\n\n",acumulador);
+
+
+
+
+
+
+
+
+
+
+
 
 }
