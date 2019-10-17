@@ -21,7 +21,8 @@ int imprimirClientes(eCliente vecCliente[],int tCli);
 int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId);
 
 
-int hardCodearClientes(eCliente vecCliente[],int tCli,int cant);
+//int hardCodearClientes(eCliente vecCliente[],int tCli,int cant);
+int hardCodearClientes(eCliente vecCliente[],int tCli);
 
 
 int buscarClienteId(eCliente vecCliente[],int tCli,int idABuscar);

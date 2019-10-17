@@ -8,7 +8,40 @@
 #include "Categoria.h"
 #include "Alquiler.h"
 
-int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui,int cantidad)
+int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui)//,int cantidad)
+{
+    int contador = 0;
+
+    eAlquiler bAlquiler[]=
+    {
+        //idAlqui,idJuego,idCliente,fecha y estado isEmpty
+       {10000,10,1002,{15,10,2019},0},
+        {10001,12,1000,{5,11,2011},0},
+        {10002,15,1005,{18,8,2018},0},
+        {10003,14,1003,{24,6,2017},0},
+        {10004,14,1004,{7,4,2013},0},
+        {10005,17,1001,{27,9,2012},0},
+        {10006,13,1005,{20,2,2010},0},
+        {10007,12,1003,{30,9,2014},0},
+        {10008,19,1001,{24,12,2012},0},
+        {10009,21,1002,{8,9,2000},0},
+        {10010,13,1000,{7,9,1998},0},
+        {10011,21,1006,{21,10,2001},0},
+        {10012,12,1009,{4,4,2008},0}
+    };
+
+    //if(cantidad<=tAlqui && cantidad <=10)
+   // {
+    for(int i = 0; i<13;i++)
+    {
+        vecAlquiler[i] = bAlquiler[i];
+        contador++;
+    }
+  //  }
+
+    return contador;
+}
+/*void hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui)
 {
     int contador = 0;
 
@@ -18,26 +51,30 @@ int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui,int cantidad)
         {10000,10,1002,{15,10,2019},0},
         {10001,12,1000,{5,11,2011},0},
         {10002,15,1005,{18,8,2018},0},
-        {10003,11,1003,{24,6,2017},0},
+        {10003,14,1003,{24,6,2017},0},
         {10004,14,1004,{7,4,2013},0},
-        {10005,10,1001,{27,9,2012},0},
+        {10005,17,1001,{27,9,2012},0},
+        {10006,13,1005,{20,2,2010},0},
+        {10007,12,1003,{30,9,2014},0},
+        {10008,19,1001,{24,12,2012},0},
+        {10009,21,1002,{8,9,2000},0},
+        {10010,13,1000,{7,9,1998},0},
+        {10011,21,1006,{21,10,2001},0},
+        {10012,12,1009,{4,4,2008},0}
     };
 
-    if(cantidad<=tAlqui && cantidad <=10)
+    //if(cantidad<=tAlqui && cantidad <=10)
+   // {
+    for(int i = 0; i<13;i++)
     {
-        for(int i=0;i<tAlqui;i++)
-        {
-            /*Que recorra todas las posiciones del vector de alquiler
-            y que vaya igualando secuencialmente todos los campos de la estructura*/
-
-            vecAlquiler[i] = bAlquiler[i];
-            contador++;
-        }
+        vecAlquiler[i] = bAlquiler[i];
+        contador++;
     }
+  //  }
 
-    return contador;
-}
+    //return contador;
 
+}*/
 
 void inicializarAlquiler(eAlquiler vecAlquiler[], int tAlqui)
 {
@@ -89,7 +126,7 @@ int imprimirAlquileres(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int 
     printf("  ID             JUEGO        CLIENTE(APE Y NOM)         FECHA\n");
     printf("  --             -----        ------------------         -----\n\n");
 
-    for(int i=0; i<tJue; i++)
+    for(int i=0; i<tAlqui; i++)
     {
         if(vecAlquiler[i].isEmpty == 0)
         {
@@ -131,7 +168,7 @@ int altaAlquiler(eAlquiler vecAlquiler[],
     {
         imprimirJuegos(vecJuego,tJue,vecCategoria,tCate);
 
-        if(getInt(&vecAlquiler[index].idJuego,"\n<10-15>\nIngrese ID de juego: ","Error.Reingrese\n",10,15,2)!=-1)
+        if(getInt(&vecAlquiler[index].idJuego,"\n<10-15>\nIngrese ID de juego: ","Error.Reingrese\n",10,21,2)!=-1)
         {
             printf("\n\n");
             imprimirClientes(vecCliente,tCli);

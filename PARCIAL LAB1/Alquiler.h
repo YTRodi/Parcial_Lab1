@@ -25,7 +25,9 @@ typedef struct
 #include "Categoria.h"
 */
 
-int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui,int cantidad);
+//int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui,int cantidad);
+int hardCodearAlquileres(eAlquiler vecAlquiler[],int tAlqui);
+
 
 void inicializarAlquiler(eAlquiler vecAlquiler[], int tAlqui);
 int buscarLibreAlquiler(eAlquiler vecAlquiler[], int tAlqui);

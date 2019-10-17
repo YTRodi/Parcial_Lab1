@@ -5,7 +5,7 @@
 #include "utn.h"
 #include "Juego.h"
 
-void hardCodearJuegos(eJuego vecJuego[],int tJue,int cant)
+void hardCodearJuegos(eJuego vecJuego[],int tJue)//,int cant)
 {
     //El ultimo cero es su estado isEmpty.
     eJuego bJuego[]=
@@ -16,8 +16,14 @@ void hardCodearJuegos(eJuego vecJuego[],int tJue,int cant)
         {11,"Metegol",5000,4},
         {12,"Pool",8000,4},
         {13,"Cubo Rubik",200,3},
-        {14,"Jenga",450,1},
-        {15,"Cartas",125,2}
+        {14,"Ajedrez",6500,1},
+        {15,"Conejo magico",125,5},
+        {16,"Cartas",125,2},
+        {17,"Monopoly",10000,1},
+        {18,"Black Jack",125,2},
+        {19,"Ping pong",7800,4},
+        {20,"Jenga",200,1},
+        {21,"Rompecabezas",150,1}
     };
 
     for(int i = 0; i<tJue;i++)

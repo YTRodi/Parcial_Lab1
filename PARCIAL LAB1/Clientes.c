@@ -23,8 +23,9 @@ int menuClienteGeneralUno()
     printf("6 - IMPRIMIR alquiler\n");
     printf("7 - IMPRIMIR categorias\n");
     printf("8 - IMPRIMIR juegos\n");
-    printf("9 - SALIR\n");
-    getInt(&option,"\nIngrese opcion: ","Error. opcion no valida",1,9,2);
+    printf("9 - Informes\n");
+    printf("10 - SALIR\n");
+    getInt(&option,"\nIngrese opcion: ","Error. opcion no valida",1,10,2);
     //ACA LIMITAR LA OPCION, MUY IMPORTANTE!!!!!!!!!!!!!!!!!!!!!
     return option;
 }
@@ -170,7 +171,7 @@ int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
 
 }
 
-int hardCodearClientes(eCliente vecCliente[],int tCli,int cant)
+int hardCodearClientes(eCliente vecCliente[],int tCli)//,int cant)
 {
     int contador = 0;
 
@@ -182,20 +183,25 @@ int hardCodearClientes(eCliente vecCliente[],int tCli,int cant)
         {1002,"Facundo","Tedesco",'m',"45678965","Doke 150",0},
         {1003,"Ban","Demon",'m',"45698735","Pedraza 888",0},
         {1004,"Joaquin","Escanor",'m',"1137103398","Lomas city 777",0},
-        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",0}
+        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",0},
+        {1006,"Napoli","Eufrasia",'f',"65494875","Blancaflor 666",0},
+        {1007,"Cespedes","Nahuel",'m',"42345678","Libertador 100",0},
+        {1008,"Filipponi","Juana",'f',"45177539","Oddone 582",0},
+        {1009,"Smith","Scott",'m',"45284582","Lelo 49",0}
     };
 
-    if(cant<=tCli && cant <=6)
-    {
-        for(int i = 0; i<tCli;i++)
+    //if(cant<=tCli && cant <=10)
+    //{
+        for(int i = 0; i<10;i++)
         {
             vecCliente[i] = bCliente[i];
             contador++;
         }
-    }
+    //}
 
     return contador;
 }
+
 
 int buscarClienteId(eCliente vecCliente[],int tCli,int idABuscar)
 {

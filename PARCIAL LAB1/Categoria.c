@@ -5,10 +5,11 @@
 #include "utn.h"
 #include "Categoria.h"
 
-void hardCodearCategoria(eCategoria vecCategoria[],int tCate,int cant)
+void hardCodearCategoria(eCategoria vecCategoria[],int tCate)//,int cant)
 {
     eCategoria bCategoria[]=
     {
+        //idCategoria y nombre (descripcion)
         {1,"Mesa"},
         {2,"Azar"},
         {3,"Estrategia"},
