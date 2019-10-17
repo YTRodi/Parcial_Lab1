@@ -273,23 +273,4 @@ void imprimirAlquileresPorClienteSeleccionado(eAlquiler vecAlquiler[],int tAlqui
         printf("\nEl Cliente no dio de alta ningun alquiler\n\n");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
