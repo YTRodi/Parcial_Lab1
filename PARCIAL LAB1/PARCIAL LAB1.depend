@@ -66,7 +66,7 @@
 	"Juego.h"
 	"Categoria.h"
 
-1571338669 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.c
+1571363436 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -77,21 +77,21 @@
 	"Categoria.h"
 	"Alquiler.h"
 
-1571000379 c:\users\yago\desktop\parcial_lab1\parcial lab1\utn.h
+1571363436 c:\users\yago\desktop\parcial_lab1\parcial lab1\utn.h
 
-1571338551 c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.h
+1571363436 c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.h
 
-1571338727 c:\users\yago\desktop\parcial_lab1\parcial lab1\juego.h
+1571363436 c:\users\yago\desktop\parcial_lab1\parcial lab1\juego.h
 	"Categoria.h"
 
-1571338757 c:\users\yago\desktop\parcial_lab1\parcial lab1\categoria.h
+1571363436 c:\users\yago\desktop\parcial_lab1\parcial lab1\categoria.h
 
-1571338663 c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.h
+1571363436 c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.h
 	"Clientes.h"
 	"Juego.h"
 	"Categoria.h"
 
-1571338758 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\categoria.c
+1571363436 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\categoria.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -99,7 +99,7 @@
 	"utn.h"
 	"Categoria.h"
 
-1571338551 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.c
+1571363436 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -107,7 +107,7 @@
 	"Clientes.h"
 	"utn.h"
 
-1571338730 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\juego.c
+1571363850 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\juego.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -115,7 +115,7 @@
 	"utn.h"
 	"Juego.h"
 
-1571338738 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\main.c
+1571371547 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -125,8 +125,9 @@
 	"Juego.h"
 	"Categoria.h"
 	"Alquiler.h"
+	"informes.h"
 
-1571000885 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\utn.c
+1571363436 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -199,4 +200,18 @@
 	<conio.h>
 	<string.h>
 	"utn.h"
+
+1571371497 c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.h
+
+1571371558 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Clientes.h"
+	"Juego.h"
+	"Categoria.h"
+	"Alquiler.h"
+	"informes.h"
 

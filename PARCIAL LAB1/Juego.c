@@ -20,7 +20,7 @@ void hardCodearJuegos(eJuego vecJuego[],int tJue)//,int cant)
         {15,"Conejo magico",125,5},
         {16,"Cartas",125,2},
         {17,"Monopoly",10000,1},
-        {18,"Black Jack",125,2},
+        {18,"Black Jack",225,2},
         {19,"Ping pong",7800,4},
         {20,"Jenga",200,1},
         {21,"Rompecabezas",150,1}
