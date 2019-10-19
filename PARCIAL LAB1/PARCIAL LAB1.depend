@@ -183,7 +183,7 @@
 	"utn.h"
 	"Juego.h"
 
-1571489030 source:d:\parcial_lab1\parcial lab1\main.c
+1571495408 source:d:\parcial_lab1\parcial lab1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -216,7 +216,7 @@
 	"Alquiler.h"
 	"informes.h"
 
-1571489030 source:d:\parcial_lab1\parcial lab1\informes.c
+1571495790 source:d:\parcial_lab1\parcial lab1\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -228,5 +228,5 @@
 	"Alquiler.h"
 	"informes.h"
 
-1571489030 d:\parcial_lab1\parcial lab1\informes.h
+1571495553 d:\parcial_lab1\parcial lab1\informes.h
 

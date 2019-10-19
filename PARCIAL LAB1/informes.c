@@ -159,7 +159,16 @@ void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente
     {
         contador = 0;
 
-        for(int j=0;j<tAlqui;j++)
+        if(vecCliente[i].isEmpty == 0)
+        {
+            if(tienePedidoAlquiler(vecCliente[i].id,vecAlquiler,tAlqui) == 0)//si cambio el == 1 me muestralos que alquilaron
+            {
+                mostrarUnCliente(vecCliente[i]);
+                //printf("%d %s %s\n\n",vecCliente[i].id,vecCliente[i].nombre,vecCliente[i].apellido);//los que no alquilaron
+            }
+        }
+
+        /*for(int j=0;j<tAlqui;j++)
         {
             if(vecCliente[i].id == vecAlquiler[j].idCliente && vecCliente[i].isEmpty == 0)
             {
@@ -173,8 +182,9 @@ void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente
         if(contador == 0 && vecCliente[i].isEmpty == 0)
         {
             mostrarUnCliente(vecCliente[i]);
-        }
+        }*/
     }
+
 }
 
 void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate)
@@ -189,9 +199,19 @@ void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vec
     {
         contador = 0;
 
-        for(int j = 0; j<tAlqui;j++)
-        {
-            if(vecJuego[i].idJue == vecAlquiler[j].idJuego)
+       // for(int j = 0; j<tAlqui;j++)
+        //{
+            if(tienePedidoJuego(vecJuego[i].idJue,vecAlquiler,tAlqui)==0)
+            {
+
+                mostrarUnJuego(vecJuego[i],vecCategoria,tCate);
+            }
+
+
+
+
+      //  }
+            /*if(vecJuego[i].idJue == vecAlquiler[j].idJuego)
             {
                 contador++;
             }
@@ -200,8 +220,41 @@ void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vec
         if(contador == 0)
         {
             mostrarUnJuego(vecJuego[i],vecCategoria,tCate);
-        }
+        }*/
+
     }
+}
+
+
+int tienePedidoAlquiler(int idCliente,eAlquiler listAlquiler[],int tamAl)
+{
+
+    for(int i =0;i<tamAl;i++)
+    {
+        if(listAlquiler[i].idCliente == idCliente)
+        {
+            return 1;
+        }
+
+    }
+
+    return 0;
+
+}
+
+int tienePedidoJuego(int id,eAlquiler vecAlquiler[],int tam)
+{
+
+    for(int i =0;i<tam;i++)
+    {
+        if(vecAlquiler[i].idJuego == id)
+        {
+            return 1;
+        }
+
+    }
+
+    return 0;
 }
 
 

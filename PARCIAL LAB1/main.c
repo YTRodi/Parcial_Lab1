@@ -14,10 +14,6 @@
 #define TAMCAT 5
 #define TAMALQUI 15
 
-
-
-
-
 int main()
 {
     eCliente arrayCliente[TAMCLI];
