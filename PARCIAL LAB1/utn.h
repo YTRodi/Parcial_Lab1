@@ -47,6 +47,10 @@ int getStringTelefono(char *pResultado,
                       int maximo,
                       int reintentos);
 
-
-void getSexo(char* pResultado, char* mensaje);
+char getSexo(char *pResultado,
+             char *pMensaje,
+             char *pMensajeError,
+             char minimo,
+             char maximo,
+             int reintentos);
 

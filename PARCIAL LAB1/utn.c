@@ -371,6 +371,47 @@ int getStringTelefono(char *pResultado,
     return retorno;
 }
 
+char getSexo(char *pResultado,
+             char *pMensaje,
+             char *pMensajeError,
+             char minimo,
+             char maximo,
+             int reintentos)
+{
+    int retorno = EXIT_ERROR;//DEVUELVE -1 SI ES ERROR
+    char buffer;
+
+    if(pResultado != NULL &&
+            pMensaje != NULL &&
+            pMensajeError != NULL &&
+            minimo < maximo &&
+            reintentos >=0)
+    {
+        do
+        {
+            printf("%s",pMensaje);
+            fflush(stdin);
+
+            if(scanf("%c",&buffer)==1)
+            {
+                if(buffer == 'f' || buffer == 'm')
+                {
+                    retorno = EXIT_SUCCESS;//DEVUELVE 0
+                    *pResultado = buffer;
+                    break;
+                }
+            }
+
+            printf("%s",pMensajeError);
+            reintentos--;
+
+        }
+        while(reintentos >= 0);
+
+    }
+    return retorno;//VA A RETORNAR 0 SI ESTA TODOOK
+}
+
 
 
 

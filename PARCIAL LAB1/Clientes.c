@@ -147,7 +147,7 @@ int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
         {
             if(getNombreOApellido(vecCliente[index].apellido,"\n<2-35 caract>\nIngrese apellido: ","\nError. Reingrese",2,35,2)!=-1)
             {
-                if(getChar(&vecCliente[index].sexo,"\n<f/m>\nIngrese sexo: ","\nError. Reingrese",'f','m',2)!=-1)
+                if(getSexo(&vecCliente[index].sexo,"\n<f/m>\nIngrese sexo: ","\nError. Reingrese",'f','m',2)!=-1)
                 {
                     if(getStringTelefono(vecCliente[index].telefono,"\n<8-10 digitos>\nIngrese telefono: ","\nError. Reingrese",8,10,2)!=-1)
                     {
