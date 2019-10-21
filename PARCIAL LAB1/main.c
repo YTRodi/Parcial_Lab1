@@ -143,6 +143,27 @@ int main()
                         //printf("informe 5\n");
                         imprimirJuegosQueNoAlquilaron(arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
                         break;
+
+                    case 6:
+                        clienteConMasAlquiler(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
+                        break;
+
+                    case 7:
+                        listarClientesConXAlquileres(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                        break;
+
+                    case 8:
+                        listarMujeresQueAlquilaron(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                        break;
+
+                    case 9:
+                        listarMujeresQueAlquilaronJuegosDeXCategoria(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
+                        break;
+
+                    case 11:
+                        listarClientesPorFechaSeleccionada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                        break;
+
                     case 10:
                         printf("Confirma salir? <s/n>: ");
                         fflush(stdin);

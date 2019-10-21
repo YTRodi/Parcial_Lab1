@@ -66,7 +66,7 @@
 	"Juego.h"
 	"Categoria.h"
 
-1571676984 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.c
+1571686162 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\alquiler.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -99,7 +99,7 @@
 	"utn.h"
 	"Categoria.h"
 
-1571675312 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.c
+1571688451 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\clientes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -115,7 +115,7 @@
 	"utn.h"
 	"Juego.h"
 
-1571676802 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\main.c
+1571688643 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -202,9 +202,9 @@
 	<string.h>
 	"utn.h"
 
-1571504932 c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.h
+1571686253 c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.h
 
-1571554643 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.c
+1571688643 source:c:\users\yago\desktop\parcial_lab1\parcial lab1\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
