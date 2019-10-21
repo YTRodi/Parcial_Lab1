@@ -5,6 +5,52 @@
 #include "Clientes.h"
 #include "utn.h"
 
+/** \brief Carga 20 Clientes con sus respectivos:
+ *         -Id
+ *         -Nombre.
+ *         -Apellido.
+ *         -Sexo.
+ *         -Telefono.
+ *         -Direccion.
+ *         -IsEmpty.
+ *
+ * \param vecCliente[] Array del tipo estructura de Clientes.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return int Contador.
+ *
+ */
+int hardCodearClientes(eCliente vecCliente[],int tCli)
+{
+    int contador = 0;
+
+    //El ultimo cero es su estado isEmpty.
+    eCliente bCliente[]=
+    {
+        //Id,nombre,apellido,sexo,telefono,direccion,isemtpy
+        {1000,"Yago","Rodi",'m',"42121743","Hudson 1515",0},
+        {1001,"Camila","Roy",'f',"45128749","Solano 850",0},
+        {1002,"Facundo","Tedesco",'m',"45678965","Doke 150",0},
+        {1003,"Ban","Demon",'m',"45698735","Pedraza 888",0},
+        {1004,"Joaquin","Escanor",'m',"1137103398","Lomas city 777",0},
+        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",0},
+        {1006,"Napoli","Eufrasia",'f',"65494875","Blancaflor 666",0},
+        {1007,"Cespedes","Nahuel",'m',"42345678","Libertador 100",0},
+        {1008,"Filipponi","Juana",'f',"45177539","Oddone 582",0},
+        {1009,"Smith","Scott",'m',"45284582","Lelo 49",0}
+
+        /**HARDCODEAR MAS CLIENTES****/
+    };
+
+    for(int i = 0; i<10; i++)
+    {
+        vecCliente[i] = bCliente[i];
+        contador++;
+    }
+
+    return contador;
+}
+
+
 /** \brief Muestra un menu de opciones.
  *
  * \return int La opcion elegida.
@@ -30,11 +76,13 @@ int menuClienteGeneralUno()
     return option;
 }
 
+
 /** \brief Inicializa el array del tipo estructura de modo que el estado isEmpty
  *         de cada posicion del array sea 1 en todas sus posiciones.
  *
- * \param listFantasma[] Array de estructura a inicializar.
- * \param tFant Longitud/tamaño del Array de estructura.
+ * \param vecCliente[] Array de estructura a inicializar.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return void No retorna nada.
  *
  */
 void inicializarCliente(eCliente vecCliente[], int tCli)
@@ -49,8 +97,8 @@ void inicializarCliente(eCliente vecCliente[], int tCli)
 /** \brief Encuentra la primera posicion disponible del
            array pasado por parametro o informa si esta lleno.
  *
- * \param listFantasma[] Array del tipo estructura en donde se buscara la posicion libre.
- * \param tFant Longitud/tamaño del Array de estructura.
+ * \param vecCliente[] Array de estructura a inicializar.
+ * \param tCli Longitud/tamaño del Array de estructura.
  * \return int Retorna el índice de la primera posicion disponible que encuentra.
  *
  */
@@ -69,9 +117,9 @@ int buscarLibreCliente(eCliente vecCliente[], int tCli)
     return indice;
 }
 
-/** \brief Muestra por pantalla a un ITEM pasado por parametro.
+/** \brief Muestra por pantalla a un Cliente pasado por parametro.
  *
- * \param listFantasma ITEM a ser mostrado.
+ * \param VecCliente Cliente a ser mostrado.
  * \return void No retorna nada.
  *
  */
@@ -86,10 +134,11 @@ void mostrarUnCliente(eCliente vecCliente)
            vecCliente.domicilio);
 }
 
-/** \brief Imprime por pantalla todo el array del ITEM pasado por parametro.
+
+/** \brief Imprime por pantalla todo el array de Clientes pasado por parametro.
  *
- * \param listFantasma[] Array del tipo estructura a ser mostrado.
- * \param tFant Longitud/tamaño del Array de estructura.
+ * \param vecAlquiler[] Array del tipo estructura de Clientes.
+ * \param tAlqui Array del tipo estructura de Clientes.
  * \return int Retorna [0] si no hay ITEM que mostrar - [1] Todo OK
  *
  */
@@ -115,20 +164,20 @@ int imprimirClientes(eCliente vecCliente[],int tCli)
     return flag;
 }
 
+
 //ALTA Cliente
-/** \brief Da de alta al ITEM.
+/** \brief Da de alta al Cliente.
  *         Se fija si hay lugar libre.
- *         Se lo hay, pide los datos.
+ *         Si lo hay, pide los datos.
  *
- * \param listFantasma[] Array del tipo estructura a dar de alta.
- * \param tFant Longitud/tamaño del Array de estructura.
- * \return int Retorna [-1] si hubo un ERROR - [0] Todo OK.
+ * \param vecCliente[] Array del tipo estructura a dar de alta.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \param lastId Ultimo Id que se va a igualar al Id de Cliente.
+ * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
  *
  */
 int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
 {
-
-
     int todoOk= 0;
     int index;
 
@@ -162,52 +211,32 @@ int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
                     }
                 }
             }
-        }    }
-    if(todoOk != 1)
-    {
-        printf("\nError en la carga de datos.\n");
+        }
+        if(todoOk != 1)
+        {
+            printf("\n\nError en la carga de datos.\n\n");
+        }
+
     }
     return todoOk;
-
-}
-
-int hardCodearClientes(eCliente vecCliente[],int tCli)//,int cant)
-{
-    int contador = 0;
-
-    //El ultimo cero es su estado isEmpty.
-    eCliente bCliente[]=
-    {
-        {1000,"Yago","Rodi",'m',"42121743","Hudson 1515",0},
-        {1001,"Camila","Roy",'f',"45128749","Solano 850",0},
-        {1002,"Facundo","Tedesco",'m',"45678965","Doke 150",0},
-        {1003,"Ban","Demon",'m',"45698735","Pedraza 888",0},
-        {1004,"Joaquin","Escanor",'m',"1137103398","Lomas city 777",0},
-        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",0},
-        {1006,"Napoli","Eufrasia",'f',"65494875","Blancaflor 666",0},
-        {1007,"Cespedes","Nahuel",'m',"42345678","Libertador 100",0},
-        {1008,"Filipponi","Juana",'f',"45177539","Oddone 582",0},
-        {1009,"Smith","Scott",'m',"45284582","Lelo 49",0}
-    };
-
-    //if(cant<=tCli && cant <=10)
-    //{
-        for(int i = 0; i<10;i++)
-        {
-            vecCliente[i] = bCliente[i];
-            contador++;
-        }
-    //}
-
-    return contador;
 }
 
 
+/** \brief Busca en el array del tipo estructura el Cliente que coincida con el
+ *         id pasado  por parametro.
+ *
+ * \param vecCliente[] Array del tipo estructura en el cual se va a buscar al Cliente.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \param idABuscar Id del Cliente a buscar.
+ * \return int Retorna el indice en el cual se encuentra el empledo buscado por ID
+ *             o [-1] en caso de no encontrarlo.
+ *
+ */
 int buscarClienteId(eCliente vecCliente[],int tCli,int idABuscar)
 {
     int index = -1;
 
-    for(int i = 0; i<tCli;i++)
+    for(int i = 0; i<tCli; i++)
     {
         if(vecCliente[i].isEmpty==0 && vecCliente[i].id == idABuscar)
         {
@@ -219,6 +248,12 @@ int buscarClienteId(eCliente vecCliente[],int tCli,int idABuscar)
     return index;
 }
 
+
+/** \brief Muestra un menu de opciones para modificar al Cliente.
+ *
+ * \return int La opcion elegida.
+ *
+ */
 int menuModificacion()
 {
     int option;
@@ -230,6 +265,14 @@ int menuModificacion()
     return option;
 }
 
+
+/** \brief Modifica los valores que desee del Cliente por Id.
+ *
+ * \param vecCliente[] Array del tipo estructura en el cual se va a modificar al Cliente.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
+ *
+ */
 int modificarCliente(eCliente vecCliente[],int tCli)
 {
     int index;
@@ -259,38 +302,46 @@ int modificarCliente(eCliente vecCliente[],int tCli)
 
         switch(menuModificacion())
         {
-            case 1:
-                if(getNombreOApellido(vecCliente[index].nombre,"\n<2-35 caract>\nIngrese nuevo nombre: ","\nError. Reingrese",2,35,2)!=-1)
-                {
-                    todoOk = 1;
-                    printf("\n..Modificacion exitosa..\n\n");
-                }
-                break;
+        case 1:
+            if(getNombreOApellido(vecCliente[index].nombre,"\n<2-35 caract>\nIngrese nuevo nombre: ","\nError. Reingrese",2,35,2)!=-1)
+            {
+                todoOk = 1;
+                printf("\n..Modificacion exitosa..\n\n");
+            }
+            break;
 
-            case 2:
-                if(getString(vecCliente[index].domicilio,"\n<2-35 caract>\nIngrese nuevo domicilio: ","\nError. Reingrese",2,35,2)!=-1)
-                {
-                    todoOk = 1;
-                    printf("\n..Modificacion exitosa..\n\n");
-                }
-                break;
+        case 2:
+            if(getString(vecCliente[index].domicilio,"\n<2-35 caract>\nIngrese nuevo domicilio: ","\nError. Reingrese",2,35,2)!=-1)
+            {
+                todoOk = 1;
+                printf("\n..Modificacion exitosa..\n\n");
+            }
+            break;
 
-            case 3:
-                if(getStringTelefono(vecCliente[index].telefono,"\n<8-10 digitos>\nIngrese nuevo telefono: ","\nError. Reingrese",8,10,2)!=-1)
-                {
-                    todoOk = 1;
-                    printf("\n..Modificacion exitosa..\n\n");
-                }
-                break;
+        case 3:
+            if(getStringTelefono(vecCliente[index].telefono,"\n<8-10 digitos>\nIngrese nuevo telefono: ","\nError. Reingrese",8,10,2)!=-1)
+            {
+                todoOk = 1;
+                printf("\n..Modificacion exitosa..\n\n");
+            }
+            break;
 
-            case 4:
-                printf("\n..Modificacion cancelada..\n\n...Redireccionando al menu...\n\n");
-                break;
+        case 4:
+            printf("\n..Modificacion cancelada..\n\n...Redireccionando al menu...\n\n");
+            break;
         }
     }
     return todoOk;
 }
 
+
+/** \brief Elimina el Cliente de manera lógica con el Id pasado por parametro.
+ *
+ * \param vecCliente[] Array del tipo estructura en el cual se va a eliminar al Cliente.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
+ *
+ */
 int bajaCliente(eCliente vecCliente[],int tCli)
 {
     int index;
@@ -336,13 +387,21 @@ int bajaCliente(eCliente vecCliente[],int tCli)
     return todoOk;
 }
 
+
+/** \brief Ordena el Array de Clientes por apellido y nombre
+ *
+ * \param vecCliente[] Array del tipo estructura en el cual se va a realizar el ordenamiento.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return void No retorna nada.
+ *
+ */
 void ordenarClientesPorApellidoYNombre(eCliente vecCliente[],int tCli)
 {
     eCliente auxCliente;
 
-    for(int i = 0; i<tCli-1;i++)
+    for(int i = 0; i<tCli-1; i++)
     {
-        for(int j = i+1;j<tCli;j++)
+        for(int j = i+1; j<tCli; j++)
         {
             if(strcmpi(vecCliente[i].apellido,vecCliente[j].apellido)>0)
             {
@@ -354,18 +413,28 @@ void ordenarClientesPorApellidoYNombre(eCliente vecCliente[],int tCli)
             {
                 if(strcmpi(vecCliente[i].apellido,vecCliente[j].apellido)==0 && strcmpi(vecCliente[i].nombre,vecCliente[j].nombre)<0)
                 {
-                auxCliente = vecCliente[i];
-                vecCliente[i] = vecCliente[j];
-                vecCliente[j] = auxCliente;
+                    auxCliente = vecCliente[i];
+                    vecCliente[i] = vecCliente[j];
+                    vecCliente[j] = auxCliente;
                 }
             }
         }
     }
 }
 
+
+/** \brief Cargar la descripcion del cliente.
+ *
+ * \param vecCliente[] Array del tipo estructura en el cual se va a cargar la descripcion.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \param id Id auxiliar en el cual se le iguala el Id del cliente
+ * \param descripcion[] Guarda el apellido y nombre del cliente (Concatenando ambos datos).
+ * \return void No retorna nada.
+ *
+ */
 void cargarDescripcionCliente(eCliente vecCliente[],int tCli,int id,char descripcion[])
 {
-    for(int i=0;i<tCli;i++)
+    for(int i=0; i<tCli; i++)
     {
         if(vecCliente[i].id == id)
         {

@@ -36,15 +36,15 @@ void mostrarUnAlquiler(eAlquiler vecAlquiler,eJuego vecJuego[],int tJue,eCliente
 
 int imprimirAlquileres(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int tJue,eCliente vecCliente[],int tCli);
 
-int altaAlquiler(eAlquiler vecAlquiler[],
-                 int tAlqui,
-                 int lastIdAlquiler,
-                 eCliente vecCliente[],
-                 int tCli,
-                 eJuego vecJuego[],
-                 int tJue,
-                 eCategoria vecCategoria[],
-                 int tCate);
+int altaAlquilerMaestra(eAlquiler vecAlquiler[],
+                        int tAlqui,
+                        int lastIdAlquiler,
+                        eCliente vecCliente[],
+                        int tCli,
+                        eJuego vecJuego[],
+                        int tJue,
+                        eCategoria vecCategoria[],
+                        int tCate);
 
 
 

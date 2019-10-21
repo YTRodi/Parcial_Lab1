@@ -9,6 +9,12 @@
 #include "Alquiler.h"
 #include "informes.h"
 
+
+/** \brief Muestra un menu de opciones.
+ *
+ * \return int La opcion elegida.
+ *
+ */
 int menuInformesClientes()
 {
     int option;
@@ -26,6 +32,15 @@ int menuInformesClientes()
 }
 
 
+/** \brief Imprime los juegos de categoria mesa
+ *
+ * \param vecJuego[] Array del tipo estructura de Juegos.
+ * \param tJue Longitud/tamaño del Array de Juegos.
+ * \param vecCategoria[] Array del tipo estructura de Categoria.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirJuegosMesa(eJuego vecJuego[],int tJue, eCategoria vecCategoria[],int tCate)
 {
     char nombre[20];
@@ -61,6 +76,20 @@ void imprimirJuegosMesa(eJuego vecJuego[],int tJue, eCategoria vecCategoria[],in
     }
 }
 
+
+/** \brief Imprime la lista de alquileres por un Id seleccionado manualmente.
+ *
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \param vecCliente[] Array del tipo estructura de Clientes.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \param vecJuego[] Array del tipo estructura de Juegos.
+ * \param tJue Longitud/tamaño del Array de Juegos.
+ * \param vecCategoria[] Array del tipo estructura de Categoria.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirAlquileresPorClienteSeleccionado(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate)
 {
 
@@ -107,6 +136,18 @@ void imprimirAlquileresPorClienteSeleccionado(eAlquiler vecAlquiler[],int tAlqui
 
 }
 
+
+/** \brief Imprime el total de importes por id de cliente seleccionado manualmente
+ *
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \param vecCliente[] Array del tipo estructura de Clientes.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \param vecJuego[] Array del tipo estructura de Juegos.
+ * \param tJue Longitud/tamaño del Array de Juegos.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirTotalDeImportes(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli, eJuego vecJuego[],int tJue)
 {
     int idClienteABuscar;
@@ -147,6 +188,16 @@ void imprimirTotalDeImportes(eAlquiler vecAlquiler[],int tAlqui,eCliente vecClie
     printf("\n\nLa suma acumulada del cliente es: $%.2f\n\n",acumulador);
 }
 
+
+/** \brief Imprime los clientes que no alquilaron juegos.
+ *
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \param vecCliente[] Array del tipo estructura de Clientes.
+ * \param tCli Longitud/tamaño del Array de estructura.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli)
 {
     printf("\n");
@@ -186,6 +237,18 @@ void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente
 
 }
 
+
+/** \brief Imprime juegos que no fueron alquilados.
+ *
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \param vecJuego[] Array del tipo estructura de Juegos.
+ * \param tJue Longitud/tamaño del Array de Juegos.
+ * \param vecCategoria[] Array del tipo estructura de Categoria.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate)
 {
     printf("\n");
@@ -215,11 +278,19 @@ void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vec
 }
 
 
-int tienePedidoAlquiler(int idAIgualar,eAlquiler listAlquiler[],int tAlqui)
+/** \brief Verifica si coincide el idCliente de la lista de alquileres con el Id auxiliar.
+ *
+ * \param idAIgualar Variable Auxiliar.
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \return int [0] ERROR - [1] - TODO OK.
+ *
+ */
+int tienePedidoAlquiler(int idAIgualar,eAlquiler vecAlquiler[],int tAlqui)
 {
     for(int i =0;i<tAlqui;i++)
     {
-        if(listAlquiler[i].idCliente == idAIgualar)
+        if(vecAlquiler[i].idCliente == idAIgualar)
         {
             return 1;
         }
@@ -227,6 +298,15 @@ int tienePedidoAlquiler(int idAIgualar,eAlquiler listAlquiler[],int tAlqui)
     return 0;
 }
 
+
+/** \brief Verifica si coincide el idJuego de la lista de alquileres con el Id auxiliar.
+ *
+ * \param idAIgualar Variable Auxiliar.
+ * \param vecAlquiler[] Array del tipo estructura de alquileres.
+ * \param tAlqui Longitud/tamaño del Array de estructura.
+ * \return int [0] ERROR - [1] - TODO OK.
+ *
+ */
 int tienePedidoJuego(int idAIgualar,eAlquiler vecAlquiler[],int tAlqui)
 {
 

@@ -13,7 +13,6 @@ typedef struct
 
 //ACA HACER EL INCLUDE CATEGORIA.H
 
-//void hardCodearJuegos(eJuego vecJuego[],int tJue,int cant);
 void hardCodearJuegos(eJuego vecJuego[],int tJue);
 void mostrarUnJuego(eJuego vecJuego,eCategoria vecCategoria[],int tCate);
 void imprimirJuegos(eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate);

@@ -5,7 +5,17 @@
 #include "utn.h"
 #include "Categoria.h"
 
-void hardCodearCategoria(eCategoria vecCategoria[],int tCate)//,int cant)
+
+/** \brief Carga 4 Categorias con sus respectivos:
+ *         -Id
+ *         -Descripcion.
+ *
+ * \param vecCategoria[] Array del tipo estructura de Categoria.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \return void No retorna nada.
+ *
+ */
+void hardCodearCategoria(eCategoria vecCategoria[],int tCate)
 {
     eCategoria bCategoria[]=
     {
@@ -24,11 +34,26 @@ void hardCodearCategoria(eCategoria vecCategoria[],int tCate)//,int cant)
 
 }
 
+
+/** \brief Muestra por pantalla a una categoria pasado por parametro.
+ *
+ * \param vecCategoria Categoria a ser mostrada.
+ * \return void No retorna nada.
+ *
+ */
 void mostrarCategoria(eCategoria vecCategoria)
 {
     printf("%4d %15s\n\n",vecCategoria.idCate,vecCategoria.descripcion);
 }
 
+
+/** \brief Imprime por pantalla todo el array de Categoria pasado por parametro.
+ *
+ * \param vecCategoria[] Array del tipo estructura de Categoria.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \return void No retorna nada.
+ *
+ */
 void imprimirCategorias(eCategoria vecCategoria[],int tCate)
 {
     printf("  ID       CATEGORIA\n");
@@ -42,6 +67,16 @@ void imprimirCategorias(eCategoria vecCategoria[],int tCate)
 
 }
 
+
+/** \brief Cargar la descripcion de la categoria.
+ *
+ * \param vecCategoria[] Array del tipo estructura en el cual se va a cargar la descripcion.
+ * \param tCate Longitud/tamaño del Array de Categoria.
+ * \param id Id auxiliar en el cual se le iguala el Id del cliente.
+ * \param descripcion[] Guarda la descripcion de la categoria.
+ * \return int [0] si hubo un error - [1] TODO OK.
+ *
+ */
 int cargarDescripcionCategoria(eCategoria vecCategoria[],int tCate,int id,char descripcion[])
 {
     int todoOk = 0;

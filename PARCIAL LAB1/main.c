@@ -9,23 +9,12 @@
 #include "Alquiler.h"
 #include "informes.h"
 
-#define TAMCLI 10
-#define TAMJU 12
+#define TAMCLI 11
+#define TAMJU 16
 #define TAMCAT 5
-#define TAMALQUI 15
+#define TAMALQUI 21
 
-
-/***
---HACER:
--DOXYGEN
--HARDCODEAR + ALQUILERES
--HARDCODEAR + CLIENTES
--HARDCODEAR + JUEGOS
-
-
-**/
-
-
+/** A LO ULTIMO CAMBIAR EL SUPERFLAG A 0 ***/
 
 
 int main()
@@ -101,7 +90,7 @@ int main()
             break;
 
         case 5:
-            if(altaAlquiler(arrayAlquiler,TAMALQUI,idAlquiler,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT))
+            if(altaAlquilerMaestra(arrayAlquiler,TAMALQUI,idAlquiler,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT))
             {
                 idAlquiler++;
                 superFlag2 = 1;
@@ -128,6 +117,7 @@ int main()
             //SOLO HARDCODEADO.
             imprimirJuegos(arrayJuego,TAMJU,arrayCategoria,TAMCAT);
             break;
+
         case 9:
             do
             {
