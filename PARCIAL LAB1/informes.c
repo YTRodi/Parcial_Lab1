@@ -588,3 +588,60 @@ int buscarAlquilerPorFecha(eAlquiler vecAlquiler[],int tAlqui,int fechaDiaABusca
     return index;
 }
 */
+
+
+void listarClientesPorFecha(eCliente vecClinte[],int tCli,eAlquiler vecAlquiler[],int tAlqui)
+{
+    eAlquiler auxAlquiler;
+    int index;
+
+
+    getInt(&auxAlquiler.fechaAlquiler.dia,"\nIngrese dia: ","Error.Reingrese",1,30,2);
+    getInt(&auxAlquiler.fechaAlquiler.mes,"\nIngrese mes: ","Error.Reingrese",1,12,2);
+    getInt(&auxAlquiler.fechaAlquiler.anio,"\nIngrese anio: ","Error.Reingrese",1995,2019,2);
+
+    index = buscarPorFechaAlquiler(vecAlquiler,auxAlquiler,tAlqui);
+
+    if(index == -1)
+    {
+        printf("NO HAY ALQUIERES\n");
+    }
+    else
+    {
+        printf("ID APELLIDO NOMBRE\n");
+        for(int i = 0; i<tCli;i++)
+        {
+            if(vecClinte[i].id == vecAlquiler[index].idCliente)
+            {
+                mostrarUnCliente(vecClinte[i]);
+            }
+        }
+    }
+
+
+
+
+
+
+}
+
+int buscarPorFechaAlquiler(eAlquiler vecAlquiler[],eAlquiler auxAlqui,int tAlqui)
+{
+    int indice = -1;
+
+    for(int i =0;i<tAlqui;i++)
+    {
+        if(vecAlquiler[i].fechaAlquiler.anio == auxAlqui.fechaAlquiler.dia &&
+           vecAlquiler[i].fechaAlquiler.mes == auxAlqui.fechaAlquiler.mes &&
+           vecAlquiler[i].fechaAlquiler.dia == auxAlqui.fechaAlquiler.dia
+           )
+        {
+            indice = i;
+            break;
+        }
+    }
+
+    return indice;
+
+
+}
