@@ -7,5 +7,6 @@ void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente
 void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate);
 
 
-int tienePedidoAlquiler(int idCliente,eAlquiler listAlquiler[],int tamAl);
-int tienePedidoJuego(int id,eAlquiler vecAlquiler[],int tam);
+int tienePedidoAlquiler(int idAIgualar,eAlquiler listAlquiler[],int tAlqui);
+int tienePedidoJuego(int idAIgualar,eAlquiler vecAlquiler[],int tAlqui);
+

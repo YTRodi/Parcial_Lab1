@@ -9,10 +9,24 @@
 #include "Alquiler.h"
 #include "informes.h"
 
-#define TAMCLI 15
+#define TAMCLI 10
 #define TAMJU 12
 #define TAMCAT 5
 #define TAMALQUI 15
+
+
+/***
+--HACER:
+-DOXYGEN
+-HARDCODEAR + ALQUILERES
+-HARDCODEAR + CLIENTES
+-HARDCODEAR + JUEGOS
+
+
+**/
+
+
+
 
 int main()
 {

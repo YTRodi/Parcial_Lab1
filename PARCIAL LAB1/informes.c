@@ -149,22 +149,21 @@ void imprimirTotalDeImportes(eAlquiler vecAlquiler[],int tAlqui,eCliente vecClie
 
 void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli)
 {
-    int contador;
-
     printf("\n");
     printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
     printf("  --       ------     --------     ----     --------     ---------\n\n");
 
-    for (int i=0;i<tCli;i++)
+    for (int i=0;i<tCli;i++)//RECORRO LOS CLIENTES
     {
-        contador = 0;
 
-        if(vecCliente[i].isEmpty == 0)
+        if(vecCliente[i].isEmpty == 0)//SI EL CLIENTE ESTA DADO DE ALTA
         {
-            if(tienePedidoAlquiler(vecCliente[i].id,vecAlquiler,tAlqui) == 0)//si cambio el == 1 me muestralos que alquilaron
+            //== 0(MUESTRA LOS QUE NO DIERON DE ALTA NINGUN ALQUILER), == 1(MUESTRA LOS QUE DIERON DE ALTA ALQUILER.)
+            //NO HACE FALTA RECORRER NO ALQUILERES, PORQUE LO RECORRE EN LA FUNCION "tienePedidoAlquiler"
+
+            if(tienePedidoAlquiler(vecCliente[i].id,vecAlquiler,tAlqui) == 0)
             {
                 mostrarUnCliente(vecCliente[i]);
-                //printf("%d %s %s\n\n",vecCliente[i].id,vecCliente[i].nombre,vecCliente[i].apellido);//los que no alquilaron
             }
         }
 
@@ -189,26 +188,16 @@ void imprimirClientesQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eCliente
 
 void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate)
 {
-    int contador;
-
     printf("\n");
     printf("  ID          NOMBRE    IMPORTE     DESCRIPCION\n");
     printf("  --          ------    -------     -----------\n\n");
 
     for(int i = 0 ; i<tJue; i++)
     {
-        contador = 0;
-
-       // for(int j = 0; j<tAlqui;j++)
-        //{
-            if(tienePedidoJuego(vecJuego[i].idJue,vecAlquiler,tAlqui)==0)
-            {
-
-                mostrarUnJuego(vecJuego[i],vecCategoria,tCate);
-            }
-
-
-
+        if(tienePedidoJuego(vecJuego[i].idJue,vecAlquiler,tAlqui)==0)
+        {
+            mostrarUnJuego(vecJuego[i],vecCategoria,tCate);
+        }
 
       //  }
             /*if(vecJuego[i].idJue == vecAlquiler[j].idJuego)
@@ -226,28 +215,24 @@ void imprimirJuegosQueNoAlquilaron(eAlquiler vecAlquiler[],int tAlqui,eJuego vec
 }
 
 
-int tienePedidoAlquiler(int idCliente,eAlquiler listAlquiler[],int tamAl)
+int tienePedidoAlquiler(int idAIgualar,eAlquiler listAlquiler[],int tAlqui)
 {
-
-    for(int i =0;i<tamAl;i++)
+    for(int i =0;i<tAlqui;i++)
     {
-        if(listAlquiler[i].idCliente == idCliente)
+        if(listAlquiler[i].idCliente == idAIgualar)
         {
             return 1;
         }
-
     }
-
     return 0;
-
 }
 
-int tienePedidoJuego(int id,eAlquiler vecAlquiler[],int tam)
+int tienePedidoJuego(int idAIgualar,eAlquiler vecAlquiler[],int tAlqui)
 {
 
-    for(int i =0;i<tam;i++)
+    for(int i =0;i<tAlqui;i++)
     {
-        if(vecAlquiler[i].idJuego == id)
+        if(vecAlquiler[i].idJuego == idAIgualar)
         {
             return 1;
         }
