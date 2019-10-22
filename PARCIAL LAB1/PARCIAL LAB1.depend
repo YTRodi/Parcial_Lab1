@@ -134,7 +134,7 @@
 	<string.h>
 	"utn.h"
 
-1571489030 source:d:\parcial_lab1\parcial lab1\alquiler.c
+1571695213 source:d:\parcial_lab1\parcial lab1\alquiler.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -145,21 +145,21 @@
 	"Categoria.h"
 	"Alquiler.h"
 
-1571489886 d:\parcial_lab1\parcial lab1\utn.h
+1571693775 d:\parcial_lab1\parcial lab1\utn.h
 
-1571489030 d:\parcial_lab1\parcial lab1\clientes.h
+1571700578 d:\parcial_lab1\parcial lab1\clientes.h
 
-1571489030 d:\parcial_lab1\parcial lab1\juego.h
+1571693775 d:\parcial_lab1\parcial lab1\juego.h
 	"Categoria.h"
 
-1571489030 d:\parcial_lab1\parcial lab1\categoria.h
+1571693775 d:\parcial_lab1\parcial lab1\categoria.h
 
-1571489030 d:\parcial_lab1\parcial lab1\alquiler.h
+1571695202 d:\parcial_lab1\parcial lab1\alquiler.h
 	"Clientes.h"
 	"Juego.h"
 	"Categoria.h"
 
-1571489030 source:d:\parcial_lab1\parcial lab1\categoria.c
+1571693775 source:d:\parcial_lab1\parcial lab1\categoria.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -167,7 +167,7 @@
 	"utn.h"
 	"Categoria.h"
 
-1571489875 source:d:\parcial_lab1\parcial lab1\clientes.c
+1571700737 source:d:\parcial_lab1\parcial lab1\clientes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -175,7 +175,7 @@
 	"Clientes.h"
 	"utn.h"
 
-1571489030 source:d:\parcial_lab1\parcial lab1\juego.c
+1571693775 source:d:\parcial_lab1\parcial lab1\juego.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -183,7 +183,7 @@
 	"utn.h"
 	"Juego.h"
 
-1571495408 source:d:\parcial_lab1\parcial lab1\main.c
+1571702034 source:d:\parcial_lab1\parcial lab1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -195,7 +195,7 @@
 	"Alquiler.h"
 	"informes.h"
 
-1571489850 source:d:\parcial_lab1\parcial lab1\utn.c
+1571693775 source:d:\parcial_lab1\parcial lab1\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -216,7 +216,7 @@
 	"Alquiler.h"
 	"informes.h"
 
-1571495790 source:d:\parcial_lab1\parcial lab1\informes.c
+1571702235 source:d:\parcial_lab1\parcial lab1\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -228,5 +228,5 @@
 	"Alquiler.h"
 	"informes.h"
 
-1571495553 d:\parcial_lab1\parcial lab1\informes.h
+1571695950 d:\parcial_lab1\parcial lab1\informes.h
 

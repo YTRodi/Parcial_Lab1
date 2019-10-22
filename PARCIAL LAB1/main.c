@@ -9,10 +9,12 @@
 #include "Alquiler.h"
 #include "informes.h"
 
-#define TAMCLI 11
+#define TAMCLI 12
 #define TAMJU 16
 #define TAMCAT 5
 #define TAMALQUI 21
+#define TAMLOCA 6
+
 
 /** A LO ULTIMO CAMBIAR EL SUPERFLAG A 0 ***/
 
@@ -24,6 +26,9 @@ int main()
     eCategoria arrayCategoria[TAMCAT];
     eAlquiler arrayAlquiler[TAMALQUI];
 
+    /**NUEVO ARRAY DE LOCALIDAD***/
+    eLocalidad arrayLocalidad[TAMLOCA];
+
     char exit = 'n';
     char exitInforme = 'n';
 
@@ -33,6 +38,7 @@ int main()
 
     int idCliente = 1000;
     int idAlquiler = 10000;
+   // int idLocalidad = 100;
 
     inicializarCliente(arrayCliente,TAMCLI);
     inicializarAlquiler(arrayAlquiler,TAMALQUI);
@@ -42,15 +48,17 @@ int main()
     idCliente = idCliente + hardCodearClientes(arrayCliente,TAMCLI);
     idAlquiler = idAlquiler + hardCodearAlquileres(arrayAlquiler,TAMALQUI);
 
+    hardCodearLocalidades(arrayLocalidad,TAMLOCA);
 
     do
     {
         switch(menuClienteGeneralUno())
         {
         case 1:
-            if(altaClienteMaestra(arrayCliente,TAMCLI,idCliente))
+            if(altaClienteMaestra(arrayCliente,TAMCLI,idCliente,arrayLocalidad,TAMLOCA))
             {
                 idCliente++;
+                //idLocalidad++;
                 superFlag = 1;
             }
             break;
@@ -58,7 +66,7 @@ int main()
         case 2:
             if(superFlag == 1)
             {
-                modificarCliente(arrayCliente,TAMCLI);
+                modificarCliente(arrayCliente,TAMCLI,arrayLocalidad,TAMLOCA);
             }
             else
             {
@@ -69,7 +77,7 @@ int main()
         case 3:
             if(superFlag == 1)
             {
-                bajaCliente(arrayCliente,TAMCLI);
+                bajaCliente(arrayCliente,TAMCLI,arrayLocalidad,TAMLOCA);
             }
             else
             {
@@ -81,7 +89,7 @@ int main()
             if(superFlag == 1)
             {
                 //ordenarClientesPorApellidoYNombre(arrayCliente,TAMCLI);
-                imprimirClientes(arrayCliente,TAMCLI);
+                imprimirClientes(arrayCliente,TAMCLI,arrayLocalidad,TAMLOCA);
             }
             else
             {
@@ -90,7 +98,7 @@ int main()
             break;
 
         case 5:
-            if(altaAlquilerMaestra(arrayAlquiler,TAMALQUI,idAlquiler,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT))
+            if(altaAlquilerMaestra(arrayAlquiler,TAMALQUI,idAlquiler,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA))
             {
                 idAlquiler++;
                 superFlag2 = 1;
@@ -124,47 +132,73 @@ int main()
                 switch(menuInformesClientes())
                 {
                     case 1:
+                        listarClientesPorLocalidadDeterminada(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 7:
+                        listarMujeresQueAlquilaron(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayLocalidad,TAMLOCA);
+                        break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    case 10:
                         imprimirJuegosMesa(arrayJuego,TAMJU,arrayCategoria,TAMCAT);
                         //printf("informe 1\n");
                         break;
-                    case 2:
-                        imprimirAlquileresPorClienteSeleccionado(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
+                    case 12:
+                        imprimirAlquileresPorClienteSeleccionado(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
                         //printf("informe 2\n");
                         break;
-                    case 3:
-                        imprimirTotalDeImportes(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU);
+                    case 13:
+                        imprimirTotalDeImportes(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayLocalidad,TAMLOCA);
                         //printf("informe 3\n");
                         break;
-                    case 4:
+                    case 14:
                         //printf("informe 4\n");
-                        imprimirClientesQueNoAlquilaron(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI);
+                        imprimirClientesQueNoAlquilaron(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayLocalidad,TAMLOCA);
                         break;
-                    case 5:
+                    case 15:
                         //printf("informe 5\n");
                         imprimirJuegosQueNoAlquilaron(arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
                         break;
 
-                    case 6:
-                        clienteConMasAlquiler(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
+
+
+
+                    /**-----***/
+
+
+                    case 16:
+                        clienteConMasAlquiler(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
                         break;
 
-                    case 7:
-                        listarClientesConXAlquileres(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                    case 17:
+                        listarClientesConXAlquileres(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayLocalidad,TAMLOCA);
                         break;
 
-                    case 8:
-                        listarMujeresQueAlquilaron(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                    case 18:
+                        //listarMujeresQueAlquilaron(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayLocalidad,TAMLOCA);
                         break;
 
-                    case 9:
-                        listarMujeresQueAlquilaronJuegosDeXCategoria(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT);
+                    case 19:
+                        listarMujeresQueAlquilaronJuegosDeXCategoria(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
                         break;
 
-                    case 11:
-                        listarClientesPorFechaSeleccionada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI);
+                    case 20:
+                        listarClientesPorFecha(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayLocalidad,TAMLOCA);
                         break;
 
-                    case 10:
+                    case 21:
                         printf("Confirma salir? <s/n>: ");
                         fflush(stdin);
                         exitInforme = getche();
@@ -184,6 +218,11 @@ int main()
             fflush(stdin);
             exit = getche();
             printf("\n\n");
+            break;
+
+        case 11:
+            printf("\n");
+            imprimirLocalidad(arrayLocalidad,TAMLOCA);
             break;
 
         default:

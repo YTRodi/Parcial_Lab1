@@ -44,7 +44,9 @@ int altaAlquilerMaestra(eAlquiler vecAlquiler[],
                         eJuego vecJuego[],
                         int tJue,
                         eCategoria vecCategoria[],
-                        int tCate);
+                        int tCate,
+                        eLocalidad vecLocalidad[],
+                        int tLoca);
 
 
 

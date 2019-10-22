@@ -26,19 +26,17 @@ int hardCodearClientes(eCliente vecCliente[],int tCli)
     //El ultimo cero es su estado isEmpty.
     eCliente bCliente[]=
     {
-        //Id,nombre,apellido,sexo,telefono,direccion,isemtpy
-        {1000,"Yago","Rodi",'m',"42121743","Hudson 1515",0},
-        {1001,"Camila","Roy",'f',"45128749","Solano 850",0},
-        {1002,"Facundo","Tedesco",'m',"45678965","Doke 150",0},
-        {1003,"Ban","Demon",'m',"45698735","Pedraza 888",0},
-        {1004,"Joaquin","Escanor",'m',"1137103398","Lomas city 777",0},
-        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",0},
-        {1006,"Napoli","Eufrasia",'f',"65494875","Blancaflor 666",0},
-        {1007,"Cespedes","Nahuel",'m',"42345678","Libertador 100",0},
-        {1008,"Filipponi","Juana",'f',"45177539","Oddone 582",0},
-        {1009,"Smith","Scott",'m',"45284582","Lelo 49",0}
-
-        /**HARDCODEAR MAS CLIENTES****/
+        //Id,nombre,apellido,sexo,telefono,domicilio,idLocalidad,Nombre localidad,isemtpy
+        {1000,"Yago","Rodi",'m',"42121743","Hudson 1515",101,0},
+        {1001,"Camila","Roy",'f',"45128749","Solano 850",102,0},
+        {1002,"Facundo","Tedesco",'m',"45678965","Doke 150",103,0},
+        {1003,"Ban","Demon",'m',"45698735","Pedraza 888",105,0},
+        {1004,"Joaquin","Escanor",'m',"47103398","Lomas 777",101,0},
+        {1005,"Elisabeth","Angelita",'f',"66667894","Nanatsu 159",106,0},
+        {1006,"Napoli","Eufrasia",'f',"65494875","Blanco 666",103,0},
+        {1007,"Cespedes","Nahuel",'m',"42345678","Liberta 100",103,0},
+        {1008,"Filipponi","Juana",'f',"45177539","Oddone 582",104,0},
+        {1009,"Smith","Scott",'m',"45284582","Lelo 49",103,0}
     };
 
     for(int i = 0; i<10; i++)
@@ -48,6 +46,26 @@ int hardCodearClientes(eCliente vecCliente[],int tCli)
     }
 
     return contador;
+}
+
+void hardCodearLocalidades(eLocalidad vecLocalidad[],int tLoca)
+{
+    //en caso que se necesite, agregar un campo isEmpty al final == 0.
+    eLocalidad bLocalidad[]=
+    {
+        //IDJUEGO, Descripcion,importe,idcategoria.
+        {101,"Avellaneda"},
+        {102,"Quilmes"},
+        {103,"Bernal"},
+        {104,"Monte grande"},
+        {105,"Sarandi"},
+        {106,"Adrogue"},
+    };
+
+    for(int i = 0; i<tLoca;i++)
+    {
+        vecLocalidad[i] = bLocalidad[i];
+    }
 }
 
 
@@ -71,7 +89,8 @@ int menuClienteGeneralUno()
     printf("8 - IMPRIMIR juegos\n");
     printf("9 - Informes\n");
     printf("10 - SALIR\n");
-    getInt(&option,"\nIngrese opcion: ","Error. opcion no valida",1,10,2);
+    printf("\n\n11 - Mostrar localidad\n");
+    getInt(&option,"\nIngrese opcion: ","Error. opcion no valida",1,11,2);
     //ACA LIMITAR LA OPCION, MUY IMPORTANTE!!!!!!!!!!!!!!!!!!!!!
     return option;
 }
@@ -123,15 +142,23 @@ int buscarLibreCliente(eCliente vecCliente[], int tCli)
  * \return void No retorna nada.
  *
  */
-void mostrarUnCliente(eCliente vecCliente)
+void mostrarUnCliente(eCliente vecCliente,eLocalidad vecLocalidad[],int tLoca)
 {
-    printf("%5d  %10s   %10s    %5c     %s     %10s\n\n",
+    char nombreLocalidad[50];
+
+    /**ESTO LO CAMBIE***/
+    cargarDescripcionLocalidad(vecLocalidad,tLoca,vecCliente.idLocalidad,nombreLocalidad);
+    //cargarDescripcionLocalidad(vecLocalidad,tLoca,vecCliente.localidad.id,nombreLocalidad);
+
+    printf("%5d  %10s %10s    %5c     %s   %15s   %5d  %15s\n\n",
            vecCliente.id,
            vecCliente.nombre,
            vecCliente.apellido,
            vecCliente.sexo,
            vecCliente.telefono,
-           vecCliente.domicilio);
+           vecCliente.domicilio,
+           vecCliente.idLocalidad,
+           nombreLocalidad);
 }
 
 
@@ -142,18 +169,18 @@ void mostrarUnCliente(eCliente vecCliente)
  * \return int Retorna [0] si no hay ITEM que mostrar - [1] Todo OK
  *
  */
-int imprimirClientes(eCliente vecCliente[],int tCli)
+int imprimirClientes(eCliente vecCliente[],int tCli,eLocalidad vecLocalidad[],int tLoca)
 {
     int flag=0;
 
-    printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
-    printf("  --       ------     --------     ----     --------     ---------\n\n");
+    printf("  ID       NOMBRE   APELLIDO     SEXO     TELEFONO         DIRECCION      ID        LOCALIDAD\n");
+    printf("  --       ------   --------     ----     --------         ---------      --        ---------\n\n");
 
     for(int i=0; i<tCli; i++)
     {
         if(vecCliente[i].isEmpty == 0)
         {
-            mostrarUnCliente(vecCliente[i]);
+            mostrarUnCliente(vecCliente[i],vecLocalidad,tLoca);
             flag=1;
         }
     }
@@ -176,7 +203,8 @@ int imprimirClientes(eCliente vecCliente[],int tCli)
  * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
  *
  */
-int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
+int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId,
+                       eLocalidad vecLocalidad[],int tLoca)
 {
     int todoOk= 0;
     int index;
@@ -202,11 +230,18 @@ int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId)
                     {
                         if(getString(vecCliente[index].domicilio,"\n<2-35 caract>\nIngrese domicilio: ","\nError. Reingrese",2,35,2)!=-1)
                         {
-                            vecCliente[index].id = lastId;
-                            vecCliente[index].isEmpty = 0;//Cambia su estado de libre a ocupado.
-                            todoOk = 1;
-                            printf("\n--Alta de --Cliente-- exitosa--\n\n");
+                            /**AGREGUE LOCALIDAD***/
+                            printf("\n");
+                            imprimirLocalidad(vecLocalidad,tLoca);
 
+                            if(getInt(&vecCliente[index].idLocalidad,"\n<101-106>\nIngrese localidad: ","\nError.Reingrese",101,106,2)!=-1)
+                            {
+                                vecCliente[index].id = lastId;
+                                //vecCliente[index].idLocalidad = lasIdLoca;
+                                vecCliente[index].isEmpty = 0;//Cambia su estado de libre a ocupado.
+                                todoOk = 1;
+                                printf("\n--Alta de --Cliente-- exitosa--\n\n");
+                            }
                         }
                     }
                 }
@@ -273,7 +308,7 @@ int menuModificacion()
  * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
  *
  */
-int modificarCliente(eCliente vecCliente[],int tCli)
+int modificarCliente(eCliente vecCliente[],int tCli,eLocalidad vecLocalidad[],int tLoca)
 {
     int index;
     int idAMod;
@@ -283,7 +318,7 @@ int modificarCliente(eCliente vecCliente[],int tCli)
     system("cls");
     printf("\n--Modificar Cliente--\n");
 
-    imprimirClientes(vecCliente,tCli);
+    imprimirClientes(vecCliente,tCli,vecLocalidad,tLoca);
 
     getInt(&idAMod,"\nIngrese ID a modificar: ","\nError. Reingrese un numero de id valido\n",1000,1999,2);
 
@@ -298,7 +333,7 @@ int modificarCliente(eCliente vecCliente[],int tCli)
         printf("\n\n");
         printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
         printf("  --       ------     --------     ----     --------     ---------\n\n");
-        mostrarUnCliente(vecCliente[index]);
+        mostrarUnCliente(vecCliente[index],vecLocalidad,tLoca);
 
         switch(menuModificacion())
         {
@@ -342,7 +377,7 @@ int modificarCliente(eCliente vecCliente[],int tCli)
  * \return int Retorna [0] si hubo un ERROR - [1] Todo OK.
  *
  */
-int bajaCliente(eCliente vecCliente[],int tCli)
+int bajaCliente(eCliente vecCliente[],int tCli,eLocalidad vecLocalidad[],int tLoca)
 {
     int index;
     int idABajar;
@@ -352,7 +387,7 @@ int bajaCliente(eCliente vecCliente[],int tCli)
     system("cls");
     printf("\n--Baja Cliente--\n");
 
-    imprimirClientes(vecCliente,tCli);
+    imprimirClientes(vecCliente,tCli,vecLocalidad,tLoca);
 
     getInt(&idABajar,"\nIngrese ID a dar de baja: ","\nError. Reingrese un numero de id valido\n",1000,1999,2);
 
@@ -367,7 +402,7 @@ int bajaCliente(eCliente vecCliente[],int tCli)
         printf("\n\n");
         printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
         printf("  --       ------     --------     ----     --------     ---------\n\n");
-        mostrarUnCliente(vecCliente[index]);
+        mostrarUnCliente(vecCliente[index],vecLocalidad,tLoca);
 
         printf("confirma baja? <s/n>: ");
         fflush(stdin);
@@ -502,6 +537,64 @@ void obtenerNombreDelCliente(eCliente vecCliente[],int tCli,int id, char dondeAs
 }*/
 
 
+void mostrarUnaLocalidad(eLocalidad vecLocalidad)
+{
+    printf("%5d  %15s\n\n",
+           vecLocalidad.id,
+           vecLocalidad.nombre);
+}
 
+void imprimirLocalidad(eLocalidad vecLocalidad[],int tLoca)
+{
+    printf("  ID            NOMBRE\n");
+    printf("  --            ------\n\n");
 
+    for(int i=0;i<tLoca;i++)
+    {
+        mostrarUnaLocalidad(vecLocalidad[i]);
+    }
+}
+
+/*void cargarDescripcionCliente(eLocalidad vecLocalidad[],int tLoca,int id,char descripcion[])
+{
+    for(int i=0; i<tLoca; i++)
+    {
+        if(vecLocalidad[i].id == id)
+        {
+            strcpy(descripcion,vecLocalidad[i]);
+            strcat(descripcion," ");
+            strcat(descripcion,vecCliente[i].nombre);
+            //strcpy(descripcion,vecCliente[i].nombre);
+        }
+    }
+
+}
+*/
+
+/*int cargarDescripcionLocalidad(eLocalidad vecLocalidad[],int tLoca,int id,char descripcion[])
+{
+    int todoOk = 0;
+
+    for(int i = 0;i<tLoca;i++)
+    {
+        if(vecLocalidad[i].id == id)
+        {
+            strcpy(descripcion,vecLocalidad[i].nombre);
+            todoOk = 1;
+            break;
+        }
+    }
+    return todoOk;
+}*/
+
+void cargarDescripcionLocalidad(eLocalidad vecLocalidad[],int tLoca,int id,char descripcion[])
+{
+    for(int i = 0; i<tLoca;i++)
+    {
+        if(vecLocalidad[i].id == id)
+        {
+            strcpy(descripcion,vecLocalidad[i].nombre);
+        }
+    }
+}
 

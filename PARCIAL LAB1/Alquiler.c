@@ -188,7 +188,9 @@ int altaAlquilerMaestra(eAlquiler vecAlquiler[],
                         eJuego vecJuego[],
                         int tJue,
                         eCategoria vecCategoria[],
-                        int tCate)
+                        int tCate,
+                        eLocalidad vecLocalidad[],
+                        int tLoca)
 {
     int todoOk= 0;
     int index;
@@ -209,7 +211,7 @@ int altaAlquilerMaestra(eAlquiler vecAlquiler[],
         if(getInt(&vecAlquiler[index].idJuego,"\n<10-15>\nIngrese ID de juego: ","Error.Reingrese\n",10,25,2)!=-1)
         {
             printf("\n\n");
-            imprimirClientes(vecCliente,tCli);
+            imprimirClientes(vecCliente,tCli,vecLocalidad,tLoca);
             if(getInt(&vecAlquiler[index].idCliente,"\n\n<1000-1999>\nIngrese ID del cliente: ","Error.Reingrese\n",1000,1999,2)!=-1)
             {
                 if(getInt(&vecAlquiler[index].fechaAlquiler.dia,"\n<1-31>\nIngrese dia: ","Error.Reingrese\n",1,31,2)!=-1)
