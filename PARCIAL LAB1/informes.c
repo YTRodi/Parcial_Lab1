@@ -120,7 +120,7 @@ void imprimirJuegosMesa(eJuego vecJuego[],int tJue, eCategoria vecCategoria[],in
  *
  */
 void imprimirAlquileresPorClienteSeleccionado(eAlquiler vecAlquiler[],int tAlqui,eCliente vecCliente[],int tCli,eJuego vecJuego[],int tJue,eCategoria vecCategoria[],int tCate,
-                                              eLocalidad vecLocalidad[],int tLoca)
+        eLocalidad vecLocalidad[],int tLoca)
 {
 
     int idClienteABuscar;
@@ -485,10 +485,10 @@ void listarMujeresQueAlquilaron(eCliente vecCliete[],int tCli,eAlquiler vecAlqui
 }
 
 void listarMujeresQueAlquilaronJuegosDeXCategoria(eCliente vecCliete[],int tCli,
-                                        eAlquiler vecAlquiler[],int tAlqui,
-                                        eJuego vecJuego[],int tJue,
-                                        eCategoria vecCategoria[],int tCate,
-                                        eLocalidad vecLocalidad[],int tLoca)
+        eAlquiler vecAlquiler[],int tAlqui,
+        eJuego vecJuego[],int tJue,
+        eCategoria vecCategoria[],int tCate,
+        eLocalidad vecLocalidad[],int tLoca)
 {
 
     char nombreCategoria[50];
@@ -538,12 +538,12 @@ int buscarAlquilerPorFecha(eAlquiler vecAlquiler[],int tAlqui,int fechaDiaABusca
 {
     int index = -1;
 
-    for(int i = 0; i<tAlqui;i++)
+    for(int i = 0; i<tAlqui; i++)
     {
         if(vecAlquiler[i].isEmpty == 0 &&
-            vecAlquiler[i].fechaAlquiler.dia == fechaDiaABuscar &&
-            vecAlquiler[i].fechaAlquiler.mes == fechaMesABuscar &&
-            vecAlquiler[i].fechaAlquiler.anio == fechaAnioABuscar)
+                vecAlquiler[i].fechaAlquiler.dia == fechaDiaABuscar &&
+                vecAlquiler[i].fechaAlquiler.mes == fechaMesABuscar &&
+                vecAlquiler[i].fechaAlquiler.anio == fechaAnioABuscar)
         {
             index = i;
             break;
@@ -590,7 +590,7 @@ void listarClientesPorFecha(eCliente vecClinte[],int tCli,eAlquiler vecAlquiler[
     else
     {
         printf("ID APELLIDO NOMBRE\n");
-        for(int i = 0; i<tCli;i++)
+        for(int i = 0; i<tCli; i++)
         {
             if(vecClinte[i].id == vecAlquiler[index].idCliente)
             {
@@ -610,12 +610,12 @@ int buscarPorFechaAlquiler(eAlquiler vecAlquiler[],eAlquiler auxAlqui,int tAlqui
 {
     int indice = -1;
 
-    for(int i =0;i<tAlqui;i++)
+    for(int i =0; i<tAlqui; i++)
     {
         if(vecAlquiler[i].fechaAlquiler.anio == auxAlqui.fechaAlquiler.dia &&
-           vecAlquiler[i].fechaAlquiler.mes == auxAlqui.fechaAlquiler.mes &&
-           vecAlquiler[i].fechaAlquiler.dia == auxAlqui.fechaAlquiler.dia
-           )
+                vecAlquiler[i].fechaAlquiler.mes == auxAlqui.fechaAlquiler.mes &&
+                vecAlquiler[i].fechaAlquiler.dia == auxAlqui.fechaAlquiler.dia
+          )
         {
             indice = i;
             break;
@@ -629,11 +629,12 @@ int buscarPorFechaAlquiler(eAlquiler vecAlquiler[],eAlquiler auxAlqui,int tAlqui
 
 /***INFORMES PARCIAL***/
 
+//informe 1 (parcial 2);
 void listarClientesPorLocalidadDeterminada(eAlquiler vecAlquiler[],int tAlqui,
-                                           eCliente vecCliente[],int tCli,
-                                           eJuego vecJuego[],int tJue,
-                                           eCategoria vecCategoria[],int tCate,
-                                            eLocalidad vecLocalidad[],int tLoca)
+        eCliente vecCliente[],int tCli,
+        eJuego vecJuego[],int tJue,
+        eCategoria vecCategoria[],int tCate,
+        eLocalidad vecLocalidad[],int tLoca)
 {
 
     int idLocalidadABuscar;
@@ -656,15 +657,15 @@ void listarClientesPorLocalidadDeterminada(eAlquiler vecAlquiler[],int tAlqui,
     }
     else
     {
-        printf("\n");
-        printf("  ID             JUEGO        CLIENTE(APE Y NOM)         FECHA\n");
-        printf("  --             -----        ------------------         -----\n\n");
+        printf("\n\n");
+        printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
+        printf("  --       ------     --------     ----     --------     ---------\n\n");
 
         //recorro todo el tamaño del vector de alquileres
-        for(int j = 0; j<tCli;j++)
+        for(int j = 0; j<tCli; j++)
         {
             if(vecCliente[j].isEmpty == 0 && vecCliente[j].idLocalidad == idLocalidadABuscar)
-           {
+            {
                 mostrarUnCliente(vecCliente[j],vecLocalidad,tLoca);
                 flag = 1;
             }
@@ -696,21 +697,344 @@ int buscarLocalidadId(eLocalidad vecLocalidad[],int tLoca,int idABuscar)
     return index;
 }
 
+
+
+//informe 2 (parcial 2);
+void imprimirJuegosPreferidosDeUnaLocalidad(eCliente vecCliente[],int tCli,
+        eAlquiler vecAlquiler[],int tAlqui,
+        eJuego vecJuego[],int tJue,
+        eCategoria vecCategoria[],int tCate,
+        eLocalidad vecLocalidad[],int tLoca)
+{
+    int idLocalidadABuscar;
+    int index;
+    int flag = 0;
+    char descripcionLocalidad[20];
+
+    printf("\n**JUEGOS PREFERIDOS DE UNA LOCALIDAD DETERMINADA**\n\n");
+
+    imprimirLocalidad(vecLocalidad,tLoca);
+
+    getInt(&idLocalidadABuscar,"\nIngrese ID de localidad a buscar: ","\nError. Reingrese un numero de id valido\n",101,106,2);
+
+    index = buscarLocalidadId(vecLocalidad,tCli,idLocalidadABuscar);
+
+    cargarDescripcionLocalidad(vecLocalidad,tLoca,idLocalidadABuscar,descripcionLocalidad);
+
+    printf("\nJuegos preferidos de la localidad de: %s \n",descripcionLocalidad);
+
+    if(index == -1)
+    {
+        printf("\nNo existe un cliente con ese ID.\n\n");
+    }
+    else
+    {
+        printf("\n");
+        printf("  ID          NOMBRE    IMPORTE       CATEGORIA\n");
+        printf("  --          ------    -------       ---------\n\n");
+
+        for(int i=0; i<tCli; i++)
+        {
+            if(vecCliente[i].idLocalidad == idLocalidadABuscar && vecCliente[i].isEmpty == 0)
+            {
+                for(int j=0; j<tAlqui; j++)
+                {
+                    if(vecCliente[i].id == vecAlquiler[j].idCliente)
+                    {
+                        for(int k=0; k<tJue; k++)
+                        {
+                            if(vecAlquiler[j].idJuego == vecJuego[k].idJue)
+                            {
+                                for(int x=0; x<tCate; x++)
+                                {
+                                    if(vecJuego[k].idCategoria == vecCategoria[x].idCate)
+                                    {
+                                        mostrarUnJuego(vecJuego[k],vecCategoria,tCate);
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    if(flag == 0)
+    {
+        printf("\nLa localidad no dio de alta ningun alquiler\n\n");
+    }
+
+}
+
+
+//informe 3 (parcial 2)
+void listarMontoRecaudadoPorDeAlquileresXLocalidadDeterminada(eCliente vecCliente[],int tCli,
+        eAlquiler vecAlquiler[],int tAlqui,
+        eJuego vecJuego[],int tJue,
+        eCategoria vecCategoria[],int tCate,
+        eLocalidad vecLocalidad[],int tLoca)
+{
+    float acumulador = 0;
+    //int flag = 0;
+    int index;
+    int idLocalidadABuscar;
+    char descripcionLocalidad[20];
+
+    imprimirLocalidad(vecLocalidad,tLoca);
+
+    getInt(&idLocalidadABuscar,"\nIngrese ID de localidad a buscar: ","\nError. Reingrese un numero de id valido\n",101,106,2);
+
+    index = buscarLocalidadId(vecLocalidad,tLoca,idLocalidadABuscar);
+
+    cargarDescripcionLocalidad(vecLocalidad,tLoca,idLocalidadABuscar,descripcionLocalidad);
+
+    if(index == -1)
+    {
+        printf("\nNo existe un cliente con ese ID.\n\n");
+    }
+    else
+    {
+        for(int i=0; i<tCli; i++)
+        {
+            if(vecCliente[i].idLocalidad == idLocalidadABuscar && vecCliente[i].isEmpty == 0)
+            {
+                for(int j=0; j<tAlqui; j++)
+                {
+                    if(vecAlquiler[j].idCliente == vecCliente[i].id && vecAlquiler[j].isEmpty == 0)
+                    {
+                        for(int k=0; k<tJue; k++)
+                        {
+                            for(int x=0; x<tCate; x++)
+                            {
+                                if(vecAlquiler[j].idJuego == vecJuego[k].idJue)
+                                {
+                                    if(vecJuego[k].idCategoria == vecCategoria[x].idCate)
+                                    {
+                                        acumulador += vecJuego[k].importe;
+                                        //acumulador = acumulador + vecJuego[k].importe;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        printf("\n\nEl monto recaudado de %s es de: $%.2f \n\n",descripcionLocalidad,acumulador);
+    }
+}
+
+
+
+
+
+//informe 4 (parcial 2)
+void imprimirClienteYFechaQueAlquiloXJuego(eCliente vecCliente[],int tCli,
+                                            eAlquiler vecAlquiler[],int tAlqui,
+                                            eJuego vecJuego[],int tJue,
+                                            eCategoria vecCategoria[],int tCate,
+                                            eLocalidad vecLocalidad[],int tLoca)
+{
+    int idJuegoABuscar;
+    int index;
+    char nombre[20];
+
+    imprimirJuegos(vecJuego,tJue,vecCategoria,tCate);
+
+    getInt(&idJuegoABuscar,"Ingrese id juego:","error.reingrese",10,25,2);
+
+    index = buscarJuegoId(vecJuego,tJue,idJuegoABuscar);
+
+    if(index == -1)
+    {
+        printf("\nEse juego nunca fue alquilado.\n\n");
+    }
+    else
+    {
+        for(int i=0; i<tAlqui; i++)
+        {
+            for(int j=0; j<tJue; j++)
+            {
+                if(vecJuego[j].idJue == idJuegoABuscar && vecAlquiler[i].idJuego == idJuegoABuscar)
+                {
+                    for(int k=0; k<tCli; k++)
+                    {
+
+                        cargarDescripcionCliente(vecCliente,tCli,vecAlquiler[i].idCliente,nombre);
+
+                        if(vecAlquiler[i].idCliente == vecCliente[k].id)
+                        {
+                            //mostrarUnAlquiler(vecAlquiler[i],vecJuego,tJue,vecCliente,tCli);
+                            printf("\nCliente: %s  FechaAlquiler: %d/%d/%d\n\n",
+                                   nombre,
+                                   vecAlquiler[i].fechaAlquiler.dia,
+                                   vecAlquiler[i].fechaAlquiler.mes,
+                                   vecAlquiler[i].fechaAlquiler.anio);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+int buscarJuegoId(eJuego vecJuego[],int tJue,int idABuscar)
+{
+    int index = -1;
+
+    for(int i = 0; i<tJue; i++)
+    {
+
+        if(vecJuego[i].idJue == idABuscar)
+        {
+            index = i;
+            //Cuando encuentro el id, rompo el for.
+            break;
+        }
+    }
+    return index;
+}
+
+
+//informe 5 (parcial 2)
 void InformarCategoriaDeJuegosMenosAlquilada(eCliente vecCliente[],int tCli,
                                             eAlquiler vecAlquiler[],int tAlqui,
                                             eJuego vecJuego[],int tJue,
                                             eCategoria vecCategoria[],int tCate,
                                             eLocalidad vecLocalidad[],int tLoca)
 {
-    /**HACERRRRRRRRRRRRRRRRRR***/
 
-    int cantidades[tCli];
+    /**  ARREGLARRRRRRRRRR   **/
+    int cantidades[tCate];
+    int menor = 0;
+    int flag = 0;
+    char nombreCate[50];
+
+
+    for(int i = 0; i<tJue; i++)
+    {
+        cantidades[i] = tieneMayorAlquilerJuego(vecAlquiler,tAlqui,vecJuego[i].idJue);
+        //if(menor>cantidades[i] || flag == 0)
+        if(menor>cantidades[i] || flag == 0)
+        {
+            menor = cantidades[i];
+            flag = 1;
+        }
+    }
+
+    printf("\n");
+    printf("   ..::LA CATEGORIA MENOS ALQUILADA ES::..\n\n");
+    printf("  ID       CATEGORIA\n");
+    printf("  --       ---------\n\n");
+
+    for(int i=0; i<tAlqui; i++)
+    {
+        for(int j=0; j<tJue; j++)
+        {
+            for(int x=0;x<tCate;x++)
+            {
+                for(int k=0; k<tCli; k++)
+                {
+                    cargarDescripcionCategoria(vecCategoria,tCate,vecJuego[j].idCategoria,nombreCate);
+
+                    if(vecAlquiler[i].idJuego == vecJuego[j].idJue && vecAlquiler[i].idCliente == vecCliente[k].id)
+                    {
+                        if(vecJuego[j].idCategoria == vecCategoria[x].idCate)
+                        {
+                            if(menor == cantidades[i])
+                            {
+                                printf("Categoria menos alquilada: %s\n",nombreCate);
+                                printf("\n");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+}
+
+
+
+//informe 6 (parcial 2)
+//Listar telefonoes de los clientes que alquilaron juegos en una determinada fecha;
+void listarTelefonoesDeClientesXFechaDeterminada(eCliente vecCliente[],int tCli,
+                                   eAlquiler vecAlquiler[],int tAlqui,
+                                   eJuego vecJuego[],int tJue,
+                                   eCategoria vecCategoria[],int tCate,
+                                   eLocalidad vecLocalidad[],int tLoca)
+{
+    eFecha fecha;
+    char nombreCliente[25];
+
+    imprimirAlquileres(vecAlquiler,tAlqui,vecJuego,tJue,vecCliente,tCli);
+    printf("\n<xx/xx/xxxx>Ingrese fecha:");
+    scanf("%d/%d/%d",&fecha.dia,&fecha.mes,&fecha.anio);
+
+    for(int i=0;i<tCli;i++)
+    {
+        if(vecCliente[i].isEmpty == 0)
+        {
+            for(int j=0;j<tAlqui;j++)
+            {
+                if(vecCliente[i].id == vecAlquiler[j].idCliente && vecAlquiler[j].isEmpty == 0)
+                {
+                    cargarDescripcionCliente(vecCliente,tCli,vecCliente[i].id,nombreCliente);
+
+                    for(int k=0;k<tJue;k++)
+                    {
+                        for(int x=0;x<tCate;x++)
+                        {
+                            if(vecAlquiler[j].idJuego == vecJuego[k].idJue)
+                            {
+                                if(vecJuego[k].idCategoria == vecCategoria[x].idCate)
+                                {
+                                    if(vecAlquiler[j].fechaAlquiler.dia == fecha.dia &&
+                                    vecAlquiler[j].fechaAlquiler.mes == fecha.mes &&
+                                    vecAlquiler[j].fechaAlquiler.anio == fecha.anio)
+                                    {
+                                        printf("\n\nCliente: %s -- telefono: %s\n\n",nombreCliente,vecCliente[i].telefono);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+//informe 8
+//- Mostrar el o los juegos mas alquilados por hombres.
+void listarJuegosMasAlquiladosXHombres(eCliente vecCliente[],int tCli,
+                                       eAlquiler vecAlquiler[],int tAlqui,
+                                       eJuego vecJuego[],int tJue,
+                                       eCategoria vecCategoria[],int tCate,
+                                       eLocalidad vecLocalidad[],int tLoca)
+{
+
+    int cantidades[tJue];
     int mayor = 0;
     int flag = 0;
+    char nombre[50];
 
-    for(int i = 0; i<tCli; i++)
+    for(int i = 0; i<tJue; i++)
     {
-        cantidades[i] = tieneMayorAlquiler(vecAlquiler,tAlqui,vecCliente[i].id);
+        cantidades[i] = tieneMayorAlquilerJuego(vecAlquiler,tAlqui,vecJuego[i].idJue);
         if(mayor<cantidades[i] || flag == 0)
         {
             mayor = cantidades[i];
@@ -719,18 +1043,181 @@ void InformarCategoriaDeJuegosMenosAlquilada(eCliente vecCliente[],int tCli,
     }
 
     printf("\n");
-    printf("   ..::EL CLIENTE QUE MAS ALQUILO ES::..\n\n");
-    printf("  ID       NOMBRE     APELLIDO     SEXO     TELEFONO     DIRECCION\n");
-    printf("  --       ------     --------     ----     --------     ---------\n\n");
-    for(int i = 0; i<tCli; i++)
+    printf("   ..::EL JUEGO MAS ALQUILADO ES (FALTA PONER POR HOMBRES)::..\n\n");
+    printf("  ID          NOMBRE    IMPORTE       CATEGORIA\n");
+    printf("  --          ------    -------       ---------\n\n");
+
+    for(int i=0; i<tAlqui; i++)
     {
-        if(mayor == cantidades[i])
+        for(int j=0; j<tJue; j++)
         {
-            mostrarUnCliente(vecCliente[i],vecLocalidad,tLoca);
+            for(int x=0;x<tCate;x++)
+            {
+                for(int k=0; k<tCli; k++)
+                {
+                    //cargarDescripcionCliente(vecCliente,tCli,vecAlquiler[i].idCliente,nombre);
+                    cargarDescripcionJuego(vecJuego,tJue,vecAlquiler[i].idJuego,nombre);
+
+                    if(vecAlquiler[i].idJuego == vecJuego[j].idJue && vecAlquiler[i].idCliente == vecCliente[k].id)
+                    {
+                        if(vecJuego[j].idCategoria == vecCategoria[x].idCate)
+                        {
+                            //if(vecCliente[k].sexo == 'm')
+                            //{       VERIFICARRRRRRRRRRRRRRRRRRRRRR
+
+                                if(mayor == cantidades[i])
+                                {
+                                    //mostrarUnCliente(vecCliente[i],vecLocalidad,tLoca);
+                                    mostrarUnJuego(vecJuego[i],vecCategoria,tCate);
+                                }
+                           // }
+                        }
+                    }
+
+
+                }
+            }
         }
     }
 
+
+
+
 }
+
+int tieneMayorAlquilerJuego(eAlquiler vecAlquiler[],int tAlqui,int idJuegoAIgualar)
+{
+    int contador = 0;
+
+    for(int i = 0; i<tAlqui; i++)
+    {
+        if(vecAlquiler[i].isEmpty == 0 && vecAlquiler[i].idJuego == idJuegoAIgualar)
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+
+//informe 9
+//Listar los clientes que alquilaron un determinado juego.
+void listarClientesQueAlquilaronXJuego(eCliente vecCliente[],int tCli,
+                                       eAlquiler vecAlquiler[],int tAlqui,
+                                       eJuego vecJuego[],int tJue,
+                                       eCategoria vecCategoria[],int tCate,
+                                       eLocalidad vecLocalidad[],int tLoca)
+{
+    int idJuegoABuscar;
+    int index;
+    imprimirJuegos(vecJuego,tJue,vecCategoria,tCate);
+
+    getInt(&idJuegoABuscar,"Ingrese ID Juego a buscar:","Error.Reingrese:",10,25,2);
+
+    index = buscarJuegoId(vecJuego,tJue,idJuegoABuscar);
+
+    if(index == -1)
+    {
+        printf("\n\nNo existe juego con ese id.\n\n");
+    }
+    else
+    {
+        printf("\n");
+        printf("  ID       NOMBRE   APELLIDO     SEXO     TELEFONO         DIRECCION          LOCALIDAD\n");
+        printf("  --       ------   --------     ----     --------         ---------         ----------\n\n");
+
+        for(int i=0;i<tAlqui;i++)
+        {
+            for(int j=0;j<tCli;j++)
+            {
+                if(vecAlquiler[i].isEmpty == 0 &&
+                   vecCliente[j].isEmpty == 0 &&
+                   vecAlquiler[i].idCliente == vecCliente[j].id)
+                {
+                    for(int k=0;k<tJue;k++)
+                    {
+                        for(int x=0;x<tCate;x++)
+                        {
+                            if(vecAlquiler[i].idJuego == vecJuego[k].idJue)
+                            {
+                                if(vecJuego[k].idJue == idJuegoABuscar && vecJuego[k].idCategoria == vecCategoria[x].idCate)
+                                {
+                                    mostrarUnCliente(vecCliente[j],vecLocalidad,tLoca);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+
+
+
+
+}
+
+
+//informe 10 (parcial 2)
+void mostrarRecaudacionDeUnaFechaDeterminada(eCliente vecCliente[],int tCli,
+                                       eAlquiler vecAlquiler[],int tAlqui,
+                                       eJuego vecJuego[],int tJue,
+                                       eCategoria vecCategoria[],int tCate,
+                                       eLocalidad vecLocalidad[],int tLoca)
+{
+    eFecha fechaRecaudacion;
+    float recaudacionTotal = 0;
+
+    imprimirAlquileres(vecAlquiler,tAlqui,vecJuego,tJue,vecCliente,tCli);
+    printf("\nIngrese fecha:");
+    scanf("%d/%d/%d",&fechaRecaudacion.dia,&fechaRecaudacion.mes,&fechaRecaudacion.anio);
+
+    for(int i=0;i<tCli;i++)
+    {
+        if(vecCliente[i].isEmpty == 0)
+        {
+            for(int j=0;j<tAlqui;j++)
+            {
+                if(vecCliente[i].id == vecAlquiler[j].idCliente && vecAlquiler[j].isEmpty == 0)
+                {
+                    if(vecAlquiler[j].fechaAlquiler.dia == fechaRecaudacion.dia &&
+                       vecAlquiler[j].fechaAlquiler.mes == fechaRecaudacion.mes &&
+                       vecAlquiler[j].fechaAlquiler.anio == fechaRecaudacion.anio)
+                    {
+                        for(int k=0;k<tJue;k++)
+                        {
+                            for(int x=0;x<tCate;x++)
+                            {
+                                if(vecAlquiler[j].idJuego == vecJuego[k].idJue)
+                                {
+                                    if(vecJuego[k].idCategoria == vecCategoria[x].idCate)
+                                    {
+                                    recaudacionTotal = recaudacionTotal + vecJuego[k].importe;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    printf("\n\nLa recaudacion total del %d/%d/%d es de %.2f\n\n",fechaRecaudacion.dia,fechaRecaudacion.mes,fechaRecaudacion.anio,recaudacionTotal);
+}
+
+
+
+
+
+
 
 
 

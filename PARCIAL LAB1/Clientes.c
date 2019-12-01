@@ -150,14 +150,13 @@ void mostrarUnCliente(eCliente vecCliente,eLocalidad vecLocalidad[],int tLoca)
     cargarDescripcionLocalidad(vecLocalidad,tLoca,vecCliente.idLocalidad,nombreLocalidad);
     //cargarDescripcionLocalidad(vecLocalidad,tLoca,vecCliente.localidad.id,nombreLocalidad);
 
-    printf("%5d  %10s %10s    %5c     %s   %15s   %5d  %15s\n\n",
+    printf("%5d  %10s %10s    %5c     %s   %15s    %15s \n\n",
            vecCliente.id,
            vecCliente.nombre,
            vecCliente.apellido,
            vecCliente.sexo,
            vecCliente.telefono,
            vecCliente.domicilio,
-           vecCliente.idLocalidad,
            nombreLocalidad);
 }
 
@@ -173,8 +172,8 @@ int imprimirClientes(eCliente vecCliente[],int tCli,eLocalidad vecLocalidad[],in
 {
     int flag=0;
 
-    printf("  ID       NOMBRE   APELLIDO     SEXO     TELEFONO         DIRECCION      ID        LOCALIDAD\n");
-    printf("  --       ------   --------     ----     --------         ---------      --        ---------\n\n");
+    printf("  ID       NOMBRE   APELLIDO     SEXO     TELEFONO         DIRECCION          LOCALIDAD\n");
+    printf("  --       ------   --------     ----     --------         ---------         ----------\n\n");
 
     for(int i=0; i<tCli; i++)
     {
@@ -234,7 +233,7 @@ int altaClienteMaestra(eCliente vecCliente[],int tCli,int lastId,
                             printf("\n");
                             imprimirLocalidad(vecLocalidad,tLoca);
 
-                            if(getInt(&vecCliente[index].idLocalidad,"\n<101-106>\nIngrese localidad: ","\nError.Reingrese",101,106,2)!=-1)
+                            if(getInt(&vecCliente[index].idLocalidad,"\n<101-106>\nIngrese ID localidad: ","\nError.Reingrese",101,106,2)!=-1)
                             {
                                 vecCliente[index].id = lastId;
                                 //vecCliente[index].idLocalidad = lasIdLoca;

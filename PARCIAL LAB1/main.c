@@ -135,8 +135,40 @@ int main()
                         listarClientesPorLocalidadDeterminada(arrayAlquiler,TAMALQUI,arrayCliente,TAMCLI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
                         break;
 
+                    case 2:
+                        imprimirJuegosPreferidosDeUnaLocalidad(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 3:
+                        listarMontoRecaudadoPorDeAlquileresXLocalidadDeterminada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 4:
+                        imprimirClienteYFechaQueAlquiloXJuego(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 5:
+                        InformarCategoriaDeJuegosMenosAlquilada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 6:
+                        listarTelefonoesDeClientesXFechaDeterminada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
                     case 7:
                         listarMujeresQueAlquilaron(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 8:
+                        listarJuegosMasAlquiladosXHombres(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 9:
+                        listarClientesQueAlquilaronXJuego(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
+                        break;
+
+                    case 10:
+                        mostrarRecaudacionDeUnaFechaDeterminada(arrayCliente,TAMCLI,arrayAlquiler,TAMALQUI,arrayJuego,TAMJU,arrayCategoria,TAMCAT,arrayLocalidad,TAMLOCA);
                         break;
 
 
@@ -151,7 +183,7 @@ int main()
 
 
 
-                    case 10:
+                    case 99:
                         imprimirJuegosMesa(arrayJuego,TAMJU,arrayCategoria,TAMCAT);
                         //printf("informe 1\n");
                         break;
@@ -175,7 +207,7 @@ int main()
 
 
 
-                    /**-----***/
+                    /**---LOS QUE PRACTIQUE EN CASA?--***/
 
 
                     case 16:
@@ -204,6 +236,7 @@ int main()
                         exitInforme = getche();
                         printf("\n\n");
                         break;
+
                     default:
                         printf("\n\n...Usted no ingreso una opcion valida...");
                         printf("\n\n...--Redireccionando al menu--...\n\n");
