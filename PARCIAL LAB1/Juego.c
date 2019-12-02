@@ -32,6 +32,24 @@ void hardCodearJuegos(eJuego vecJuego[],int tJue)
 
         //IDJUEGO, Descripcion,importe,idcategoria.
         {10,"Galera magica",1000,5},
+        {11,"Metegol",5000,2},
+        {12,"Pool",8000,4},
+        {13,"Cubo Rubik",200,4},
+        {14,"Ajedrez",6500,1},
+        {15,"Conejo magico",125,4},
+        {16,"Cartas",125,2},
+        {17,"Monopoly",10000,1},
+        {18,"Black Jack",225,2},
+        {19,"Ping pong",7800,4},
+        {20,"Jenga",200,1},
+        {21,"Rompecabezas",150,1},
+        {22,"Uno",400,2},
+        {23,"Teg",6000,3},
+        {24,"Cardistry",1100,5},
+        {25,"Inflable",8400,4}
+        //CON ESTO HAGO EL INFORME 5 (PARCIAL 2)
+
+        /*{10,"Galera magica",1000,5},
         {11,"Metegol",5000,4},
         {12,"Pool",8000,4},
         {13,"Cubo Rubik",200,3},
@@ -46,7 +64,7 @@ void hardCodearJuegos(eJuego vecJuego[],int tJue)
         {22,"Uno",400,2},
         {23,"Teg",6000,3},
         {24,"Cardistry",1100,5},
-        {25,"Inflable",8400,4}
+        {25,"Inflable",8400,4}*/
     };
 
     for(int i = 0; i<tJue;i++)
